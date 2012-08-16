@@ -13,7 +13,7 @@ class Dummy < Freeplay::Player
       x, y = find_space_adjacent_to_opponents_last_move(board.last_opponent_move)
     end
 
-    if x.nil? or y.nil?
+    if still_need_a_move?(x, y)
       logger.info("searching for first available space")
 
       x, y = find_first_available_space
@@ -21,6 +21,10 @@ class Dummy < Freeplay::Player
 
     # Return the desired location on the board.
     [x, y]
+  end
+
+  def still_need_a_move?(x, y)
+    x.nil? || y.nil?
   end
 
   def find_space_adjacent_to_opponents_last_move(opponent_last_move)
