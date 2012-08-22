@@ -5,7 +5,13 @@ class ElaineBot < Freeplay::Player
 
   ##############################################################################
   def move
-    x, y = nil, nil
+
+    puts "This is the game."
+    puts board.player
+    puts board[0,0]
+    puts board[1,1]
+    puts board[2,2]
+    puts board[3,3]
 
     if board.last_opponent_move
       logger.info("searching for an open adjacent space")
